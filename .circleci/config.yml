@@ -55,7 +55,7 @@ jobs:
       - run:
           name: Deploy over SSH
           command: |
-            sudo apt install rsync
+            sudo apt install -y rsync
             rsync -a ssh $PROJECT_DIR $SSH_USER@$SSH_HOST
 
 workflows:
