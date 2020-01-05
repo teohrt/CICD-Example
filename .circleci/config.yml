@@ -55,7 +55,7 @@ jobs:
       - run:
           name: Deploy over SSH
           command: |
-            rsync -a ssh ./ $SSH_USER@$SSH_HOST:/home/circleci/CICD_Example
+            rsync -a ssh --delete ./ $SSH_USER@$SSH_HOST:/home/circleci/CICD_Example
 
 workflows:
   version: 2
