@@ -40,6 +40,8 @@ jobs:
       #     destination: logs
 
   deploy:
+    machine:
+      enabled: true
     environment:
       PROJECT_DIR: ~/CICD_Example
       SSH_USER: circleci
@@ -55,7 +57,7 @@ jobs:
       - run:
           name: Deploy over SSH
           command: |
-            sudo apt install -y rsync
+            sudo apt install --fix-missing rsync
             rsync -a ssh $PROJECT_DIR $SSH_USER@$SSH_HOST
 
 workflows:
