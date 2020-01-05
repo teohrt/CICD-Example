@@ -55,8 +55,7 @@ jobs:
       - run:
           name: Deploy over SSH
           command: |
-            sudo apt install --fix-missing rsync
-            rsync -a ssh $PROJECT_DIR $SSH_USER@$SSH_HOST
+            rsync -a ssh ./ $SSH_USER@$SSH_HOST:/home/circleci/CICD_Example
 
 workflows:
   version: 2
