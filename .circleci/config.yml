@@ -43,9 +43,9 @@ jobs:
     machine:
       enabled: true
     environment:
-      PROJECT_DIR: ~/CICD_Example
       SSH_USER: circleci
       SSH_HOST: ec2-18-225-5-197.us-east-2.compute.amazonaws.com
+      PROJECT_DIR: /home/circleci/CICD-Example
     working_directory: ~/CICD-Example
     steps:
       - checkout
@@ -55,7 +55,7 @@ jobs:
       - run:
           name: Deploy over SSH
           command: |
-            rsync -a --delete ./* $SSH_USER@$SSH_HOST:/home/circleci/
+            rsync -a ./* $SSH_USER@$SSH_HOST:$PROJECT_DIR
 
 workflows:
   version: 2
